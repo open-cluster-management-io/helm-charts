@@ -27,6 +27,6 @@ jobs:
         uses: azure/CLI@v1
         with:
           inlineScript: |
-            az storage blob upload-batch -d releases --account-name helmocm  --auth-mode login -s .
+            az storage blob upload-batch -d releases --account-name openclustermanagement  --auth-mode login -s .
       - name: Azure logout
         run: |
