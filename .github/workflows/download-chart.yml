@@ -1,0 +1,48 @@
+name: Download Helm Chart
+
+on:
+  workflow_dispatch:
+    inputs:
+      repo:
+        type: string
+        required: true
+        description: The target repo to download helm charts
+      tag:
+        type: string
+        required: true
+        description: A semver
+      chart-name:
+        type: string
+        required: true
+        description: The chart name
+
+env:
+  # Common versions
+  PUBLISH_BRANCH: 'test' # TODO: main
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: ${PUBLISH_BRANCH}
+      - uses: dsaltares/fetch-gh-release-asset@master
+        with:
+          repo: "${{ github.event.inputs.repo }}"
+          version: "tags/v${{ github.event.inputs.tag }}"
+          file: "${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
+          token: ${{ secrets.GITHUB_TOKEN }}
+          target: "charts/"
+      - name: Configure Git
+        run: |
+          git config user.name "$GITHUB_ACTOR"
+          git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - name: Push Chart
+        run: |
+          git commit -s \
+            -m "Automated upload ${{ github.event.inputs.repo }} ${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
+          git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${PUBLISH_BRANCH}
+
+
