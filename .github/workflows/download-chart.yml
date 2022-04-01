@@ -47,6 +47,6 @@ jobs:
           git add .
           git status
           git commit -s \
-            -m "Automated upload ${{ github.event.inputs.repo }} ${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
+            -m "Automated upload ${{ github.event.inputs.repo }} ${{ github.event.inputs.chart-name }}-${{ github.event.inputs.version }}.tgz"
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${{ env.PUBLISH_BRANCH }}
 
