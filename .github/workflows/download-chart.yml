@@ -18,7 +18,7 @@ on:
 
 env:
   # Common versions
-  PUBLISH_BRANCH: 'test' # TODO: main
+  PUBLISH_BRANCH: 'main'
 
 jobs:
   download:
@@ -27,22 +27,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: ${PUBLISH_BRANCH}
-      - uses: dsaltares/fetch-gh-release-asset@master
+          ref: ${{ env.PUBLISH_BRANCH }}
+          token: ${{ secrets.PAT_TOKEN }}
+      - uses: robinraju/release-downloader@v1.3
         with:
-          repo: "${{ github.event.inputs.repo }}"
-          version: "tags/v${{ github.event.inputs.tag }}"
-          file: "${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          target: "charts/"
-      - name: Configure Git
+          repository: "${{ github.event.inputs.repo }}"
+          tag: "v${{ github.event.inputs.tag }}"
+          fileName: "${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
+          out-file-path: "charts/"
+          token: ${{ secrets.PAT_TOKEN }}
+      - name: Push Chart
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
-      - name: Push Chart
-        run: |
+          git add .
+          git status
           git commit -s \
             -m "Automated upload ${{ github.event.inputs.repo }} ${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
-          git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${PUBLISH_BRANCH}
-
+          git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${{ env.PUBLISH_BRANCH }}
 
