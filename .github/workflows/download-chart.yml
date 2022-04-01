@@ -41,6 +41,7 @@ jobs:
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
       - name: Push Chart
         run: |
+          git add .
           git commit -s \
             -m "Automated upload ${{ github.event.inputs.repo }} ${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
           git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${{ env.PUBLISH_BRANCH }}
