@@ -24,6 +24,10 @@ jobs:
   download:
     runs-on: ubuntu-latest
     steps:
+      - name: Turnstyle
+        uses: softprops/turnstyle@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Checkout
         uses: actions/checkout@v3
         with:
