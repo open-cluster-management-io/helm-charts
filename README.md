@@ -46,7 +46,7 @@ can be invoked from your own repo via the following action step:
           owner: 'open-cluster-management-io',
           repo: 'helm-charts',
           workflow_id: 'download-chart.yml',
-          ref: 'test',
+          ref: 'main',
           inputs: {
             # repo is the target repo to download chart package
             repo: "${{ github.repository }}",
