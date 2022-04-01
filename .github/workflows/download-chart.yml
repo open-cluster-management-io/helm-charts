@@ -34,7 +34,7 @@ jobs:
           tag: "v${{ github.event.inputs.tag }}"
           fileName: "${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
           out-file-path: "charts/"
-          token: ${{ secrets.PAT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
       - name: Configure Git
         run: |
           git config user.name "$GITHUB_ACTOR"
