@@ -83,3 +83,17 @@ following action to published charts:
 ## Workflow
 
 ![Arch](./static/arch.png)
+
+### Steps description
+
+1. Code repo admin adds a new release tag and push, which triggers the release 
+   job flow including release docker image build and chart packaging.
+2. At the end of the release job, the code repo should invoke the chart repo's
+   "download-chart.yml" workflow to send a notification that a new release is
+   out. Note that the released chart packaged should be listed in the github
+   release asset files following the name convention of helm charts i.e.
+   "<chart name>-<release version>.tgz"
+3. The chart repo downloads the chart package from code repo release assets and
+   then commits to the "main" branch.
+4. A post-commit job in the chart repo named "chart-release.yml" uploads the 
+   latest artifacts to the remote blob storage along with an index file.
