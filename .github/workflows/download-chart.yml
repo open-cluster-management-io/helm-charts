@@ -27,8 +27,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
         with:
-          ref: ${PUBLISH_BRANCH}
-      - uses: dsaltares/fetch-gh-release-asset@master
+          ref: ${{ env.PUBLISH_BRANCH }}
+      - uses: dsaltares/fetch-gh-release-asset@v0.0.8
         with:
           repo: "${{ github.event.inputs.repo }}"
           version: "tags/v${{ github.event.inputs.tag }}"
@@ -43,6 +43,6 @@ jobs:
         run: |
           git commit -s \
             -m "Automated upload ${{ github.event.inputs.repo }} ${{ github.event.inputs.chart-name }}-${{ github.event.inputs.tag }}.tgz"
-          git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${PUBLISH_BRANCH}
+          git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${{ env.PUBLISH_BRANCH }}
 
 
