@@ -41,7 +41,8 @@ jobs:
               -d releases \
               --account-name openclustermanagement \
               --auth-mode login \
-              -s charts/
+              -s charts/ \
+              --overwrite
 
       - name: Azure logout
         run: |
