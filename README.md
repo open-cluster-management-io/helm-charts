@@ -5,11 +5,11 @@
 [![Release Charts](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/chart-release.yml/badge.svg)](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/chart-release.yml)
 
 
-This repo is for storing and publishing helm chart packages. Also, the 
+This repo is for storing and publishing helm chart packages. Also, the
 configured workflow will make the uploaded chart packages are synced
 and indexed to the OCM chart repo.
 
-## Install 
+## Install
 
 ```shell
 $ helm repo add ocm https://openclustermanagement.blob.core.windows.net/releases/
@@ -26,7 +26,7 @@ are several approaches to submit a new chart package to this repo:
 
 ### 1. Manual upload via pull request
 
-After forking this repo, you can either push the chart package to your own 
+After forking this repo, you can either push the chart package to your own
 forked repo via github web pages or git command-lines, and then open a pull
 request across the fork.
 
@@ -39,7 +39,7 @@ can be invoked from your own repo via the following action step:
 - name: submit charts to OCM chart repo
   uses: actions/github-script@v6
   with:
-    github-token: ${{ secrets.PAT_TOKEN }}
+    github-token: ${{ secrets.OCM_BOT_PAT }}
     script: |
       try {
         const result = await github.rest.actions.createWorkflowDispatch({
@@ -53,7 +53,7 @@ can be invoked from your own repo via the following action step:
             # version is the target release version to download (without "v" prefix)
             version: "${{ env.TRIMED_RELEASE_VERSION }}",
             # chart-name is the name of the chart package, e.g. a chart-name "foo"
-            # and version "1.1.1" will trigger the download action to download a 
+            # and version "1.1.1" will trigger the download action to download a
             # file named "foo-1.1.1.tgz" from the corresponding github release.
             "chart-name": "${{ env.CHART_NAME }}",
           },
@@ -66,7 +66,7 @@ can be invoked from your own repo via the following action step:
 ```
 
 Note that please also verify that the source code repo is publishing the chart
-package tarballs in the release assets. It's recommended to the use the 
+package tarballs in the release assets. It's recommended to the use the
 following action to published charts:
 
 ```
@@ -86,7 +86,7 @@ following action to published charts:
 
 ### Steps description
 
-1. Code repo admin adds a new release tag and push, which triggers the release 
+1. Code repo admin adds a new release tag and push, which triggers the release
    job flow including release docker image build and chart packaging.
 2. At the end of the release job, the code repo should invoke the chart repo's
    "download-chart.yml" workflow to send a notification that a new release is
@@ -95,5 +95,5 @@ following action to published charts:
    "<chart name>-<release version>.tgz"
 3. The chart repo downloads the chart package from code repo release assets and
    then commits to the "main" branch.
-4. A post-commit job in the chart repo named "chart-release.yml" uploads the 
+4. A post-commit job in the chart repo named "chart-release.yml" uploads the
    latest artifacts to the remote blob storage along with an index file.
