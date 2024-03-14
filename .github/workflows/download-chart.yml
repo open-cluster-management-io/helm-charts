@@ -33,7 +33,7 @@ jobs:
         with:
           ref: ${{ env.PUBLISH_BRANCH }}
           token: ${{ secrets.OCM_BOT_PAT }}
-      - uses: robinraju/release-downloader@v1.3
+      - uses: robinraju/release-downloader@v1.9
         with:
           repository: "${{ github.event.inputs.repo }}"
           tag: "v${{ github.event.inputs.version }}"
