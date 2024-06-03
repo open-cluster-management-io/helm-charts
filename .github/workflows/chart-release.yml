@@ -1,48 +1,25 @@
-name: Release Charts
+name: Deploy Helm Charts to GitHub Pages
 
 on:
   push:
-    paths:
-      - 'charts/**'
     branches:
       - main
 
-permissions:
-  id-token: write
-  contents: read
-
 jobs:
-  release:
+  deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Turnstyle
-        uses: softprops/turnstyle@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: azure/setup-helm@v1
-      - name: Login Azure
-        uses: azure/login@v1
-        with:
-          client-id: ${{ secrets.AZURE_CLIENT_ID }}
-          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
-          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Reindex
+      - name: Update Helm index
         run: |
-          helm repo index charts/
+          helm repo index charts --url https://open-cluster-management.io/helm-charts
 
-      - name: Upload to blob storage
-        uses: azure/CLI@v1
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
         with:
-          inlineScript: |
-            az storage blob upload-batch \
-              -d releases \
-              --account-name openclustermanagement \
-              --auth-mode login \
-              -s charts/ \
-              --overwrite
-
-      - name: Azure logout
-        run: |
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./charts
+          publish_branch: gh-pages

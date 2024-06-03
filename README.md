@@ -12,17 +12,18 @@ and indexed to the OCM chart repo.
 ## Install
 
 ```shell
-$ helm repo add ocm https://openclustermanagement.blob.core.windows.net/releases/
+$ helm repo add ocm https://open-cluster-management.io/helm-charts
 $ helm repo update
 $ helm search repo ocm
 ```
 
 ## Upload
 
-Any file edition under `charts/` folder will trigger the workflow [chart-release.yml](./.github/workflows/chart-release.yml)
-to flush all the chart packages to the remote repo along with an `index.yaml`
-file which is dynamically computed from all the existing chart packages. There
-are several approaches to submit a new chart package to this repo:
+Any file edition in the `main` branch folder will trigger the workflow
+[chart-release.yml](./.github/workflows/chart-release.yml)
+to flush all the chart packages in the `charts/` folder to the
+[gh-pages](https://github.com/open-cluster-management-io/helm-charts/tree/gh-pages)
+branch, which is the source of the ocm helm charts repository served by GitHub Pages.
 
 ### 1. Manual upload via pull request
 
