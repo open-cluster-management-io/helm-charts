@@ -1,0 +1,8 @@
+repositoryID: eb16c3c1-a860-4ffd-b8f5-2d0287290dc2
+owners:
+  - name: Qiu Jian
+    email: jqiu@redhat.com
+  - name: Zhu Jian
+    email: jiazhu@redhat.com
+ignore:
+  - name: dummy
