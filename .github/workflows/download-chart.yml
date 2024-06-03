@@ -40,6 +40,12 @@ jobs:
           fileName: "${{ github.event.inputs.chart-name }}-${{ github.event.inputs.version }}.tgz"
           out-file-path: "charts/"
           token: ${{ secrets.OCM_BOT_PAT }}
+      - name: Set up Helm
+        run: |
+          curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
+      - name: Create Helm index
+        run: |
+          helm repo index charts --url https://open-cluster-management.io/helm-charts
       - name: Push Chart
         run: |
           git config user.name "$GITHUB_ACTOR"
