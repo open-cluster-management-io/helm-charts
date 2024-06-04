@@ -3,6 +3,7 @@
 [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 [![Download Helm Chart](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/download-chart.yml/badge.svg)](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/download-chart.yml)
 [![Release Charts](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/chart-release.yml/badge.svg)](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/chart-release.yml)
+[![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/ocm-helm-charts)](https://artifacthub.io/packages/search?repo=ocm-helm-charts)
 
 
 This repo is for storing and publishing helm chart packages. Also, the
