@@ -5,7 +5,6 @@
 [![Release Charts](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/chart-release.yml/badge.svg)](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/chart-release.yml)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/ocm-helm-charts)](https://artifacthub.io/packages/search?repo=ocm-helm-charts)
 
-
 This repo is for storing and publishing helm chart packages. Also, the
 configured workflow will make the uploaded chart packages are synced
 and indexed to the OCM chart repo.
@@ -24,7 +23,11 @@ Any file edition in the `main` branch folder will trigger the workflow
 [chart-release.yml](./.github/workflows/chart-release.yml)
 to flush all the chart packages in the `charts/` folder to the
 [gh-pages](https://github.com/open-cluster-management-io/helm-charts/tree/gh-pages)
-branch, which is the source of the ocm helm charts repository served by GitHub Pages.
+branch, which is the source of the ocm helm charts repository served by
+[Netlify](https://ocm-helm-charts.netlify.app/).
+
+User requests from the main documentation site [open-cluster-management.io](https://open-cluster-management.io/) are
+redirected here through [Netlify redirects](https://github.com/open-cluster-management-io/open-cluster-management-io.github.io/blob/main/netlify.toml).
 
 ### 1. Manual upload via pull request
 
