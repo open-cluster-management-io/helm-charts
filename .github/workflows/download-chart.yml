@@ -15,6 +15,10 @@ on:
         type: string
         required: true
         description: 'The chart package name which is used for finding the target asset. The downloading asset name will be "<chart-name>-<version>.tgz"'
+      component:
+        type: string
+        required: false
+        description: 'The component associated with the target release. Required for release tags of the form "<component>/v<version>"'
 
 env:
   # Common versions
@@ -28,18 +32,30 @@ jobs:
         uses: softprops/turnstyle@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Checkout
         uses: actions/checkout@v3
         with:
           ref: ${{ env.PUBLISH_BRANCH }}
           token: ${{ secrets.OCM_BOT_PAT }}
+
+      - name: Determine release tag
+        id: release-tag
+        run: |
+          if [ -z "${{ github.event.inputs.component }}" ]; then
+            echo "releaseTag=v${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          else
+            echo "releaseTag=${{ github.event.inputs.component }}/v${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
+          fi
+
       - uses: robinraju/release-downloader@v1.9
         with:
           repository: "${{ github.event.inputs.repo }}"
-          tag: "v${{ github.event.inputs.version }}"
+          tag: "${{ steps.release-tag.outputs.releaseTag }}"
           fileName: "${{ github.event.inputs.chart-name }}-${{ github.event.inputs.version }}.tgz"
           out-file-path: "charts/"
           token: ${{ secrets.OCM_BOT_PAT }}
+
       - name: Push Chart
         run: |
           git config user.name "$GITHUB_ACTOR"
