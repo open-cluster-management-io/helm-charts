@@ -1,13 +1,23 @@
-# Helm Charts
+# Open Cluster Management Helm Charts
 
 [![License](https://img.shields.io/:license-apache-blue.svg)](http://www.apache.org/licenses/LICENSE-2.0.html)
 [![Download Helm Chart](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/download-chart.yml/badge.svg)](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/download-chart.yml)
 [![Release Charts](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/chart-release.yml/badge.svg)](https://github.com/open-cluster-management-io/helm-charts/actions/workflows/chart-release.yml)
 [![Artifact Hub](https://img.shields.io/endpoint?url=https://artifacthub.io/badge/repository/ocm-helm-charts)](https://artifacthub.io/packages/search?repo=ocm-helm-charts)
 
-This repo is for storing and publishing helm chart packages. Also, the
-configured workflow will make the uploaded chart packages are synced
-and indexed to the OCM chart repo.
+This repository stores and publishes Helm chart packages for Open Cluster Management (OCM) components. OCM is a Kubernetes-native project that provides multi-cluster management capabilities, enabling you to manage multiple clusters from a central hub cluster.
+
+The repository contains Helm charts for various OCM components including:
+
+- **cluster-manager** - The hub cluster controller that manages multiple clusters
+- **klusterlet** - The agent component deployed on managed clusters
+- **cluster-proxy** - Provides secure connectivity between hub and managed clusters
+- **multicluster-controlplane** - Lightweight controlplane for multi-cluster scenarios
+- **managed-serviceaccount** - Manages service accounts across clusters
+- **argocd-pull-integration** - Integration with ArgoCD for GitOps workflows
+- **fleetconfig-controller** - Manages fleet configurations across clusters
+
+The configured workflows automatically sync and index uploaded chart packages to the OCM chart repository.
 
 ## Install
 
@@ -19,11 +29,11 @@ $ helm search repo ocm
 
 ## Upload
 
-Any file edition in the `main` branch folder will trigger the workflow
+Any file changes in the `main` branch will trigger the workflow
 [chart-release.yml](./.github/workflows/chart-release.yml)
-to flush all the chart packages in the `charts/` folder to the
+to publish all chart packages in the `charts/` folder to the
 [gh-pages](https://github.com/open-cluster-management-io/helm-charts/tree/gh-pages)
-branch, which is the source of the ocm helm charts repository served by
+branch, which serves as the source for the OCM Helm charts repository hosted by
 [Netlify](https://ocm-helm-charts.netlify.app/).
 
 User requests from the main documentation site [open-cluster-management.io](https://open-cluster-management.io/) are
@@ -31,14 +41,14 @@ redirected here through [Netlify redirects](https://github.com/open-cluster-mana
 
 ### 1. Manual upload via pull request
 
-After forking this repo, you can either push the chart package to your own
-forked repo via github web pages or git command-lines, and then open a pull
-request across the fork.
+After forking this repository, you can upload chart packages to your forked
+repository either through the GitHub web interface or using git command-line
+tools, then open a pull request to merge your changes.
 
-### 2. Automatic upload via github action
+### 2. Automatic upload via GitHub Action
 
-The manual workflow [download-chart.yml](.github/workflows/download-chart.yml)
-can be invoked from your own repo via the following action step:
+The workflow [download-chart.yml](./.github/workflows/download-chart.yml)
+can be invoked from your own repository using the following action step:
 
 ```
 - name: submit charts to OCM chart repo
@@ -70,9 +80,9 @@ can be invoked from your own repo via the following action step:
       }
 ```
 
-Note that please also verify that the source code repo is publishing the chart
-package tarballs in the release assets. It's recommended to the use the
-following action to published charts:
+Note: Please verify that your source code repository publishes chart
+package tarballs in the release assets. It is recommended to use the
+following action to publish charts:
 
 ```
 - name: publish release
@@ -89,16 +99,46 @@ following action to published charts:
 
 ![Arch](./static/arch.png)
 
-### Steps description
+### Process Description
 
-1. Code repo admin adds a new release tag and push, which triggers the release
-   job flow including release docker image build and chart packaging.
-2. At the end of the release job, the code repo should invoke the chart repo's
-   "download-chart.yml" workflow to send a notification that a new release is
-   out. Note that the released chart packaged should be listed in the github
-   release asset files following the name convention of helm charts i.e.
-   "<chart name>-<release version>.tgz"
-3. The chart repo downloads the chart package from code repo release assets and
-   then commits to the "main" branch.
-4. A post-commit job in the chart repo named "chart-release.yml" uploads the
-   latest artifacts to the remote blob storage along with an index file.
+1. A code repository admin creates a new release tag and pushes it, which triggers the release
+   job flow including Docker image build and chart packaging.
+2. At the end of the release job, the code repository invokes the chart repository's
+   "download-chart.yml" workflow to notify that a new release is available. The released
+   chart package should be listed in the GitHub release asset files following the Helm
+   chart naming convention: `<chart-name>-<release-version>.tgz`
+3. The chart repository downloads the chart package from the code repository's release assets
+   and commits it to the "main" branch.
+4. A post-commit job in the chart repository named "chart-release.yml" uploads the
+   latest artifacts to remote blob storage along with an updated index file.
+
+## Contributing
+
+We welcome contributions to the Open Cluster Management Helm Charts repository! Please read our [Contributing Guide](CONTRIBUTING.md) for information on how to contribute charts and improvements.
+
+All contributors must follow our [Code of Conduct](CODE_OF_CONDUCT.md) to ensure a welcoming and inclusive environment for everyone.
+
+## Community
+
+Open Cluster Management is an active open source project with a growing community. Get involved:
+
+- **Website**: [open-cluster-management.io](https://open-cluster-management.io/)
+- **GitHub Organization**: [open-cluster-management-io](https://github.com/open-cluster-management-io)
+- **Slack**: Join the [#open-cluster-management](https://kubernetes.slack.com/channels/open-cluster-management) channel on Kubernetes Slack
+- **Community Meetings**: Check the [community repository](https://github.com/open-cluster-management-io/community) for meeting schedules and agendas
+
+## Security
+
+Security issues should be reported following our [Security Response Process](SECURITY.md). Please do not file public issues for security vulnerabilities.
+
+## Support
+
+For questions and support:
+
+- **Documentation**: Visit [open-cluster-management.io](https://open-cluster-management.io/) for comprehensive documentation
+- **GitHub Issues**: Use the [issue tracker](https://github.com/open-cluster-management-io/helm-charts/issues) for chart-specific issues
+- **Community Support**: Ask questions in the Kubernetes Slack #open-cluster-management channel
+
+## License
+
+This project is licensed under the Apache License 2.0 - see the [LICENSE](LICENSE) file for details.

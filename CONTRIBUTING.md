@@ -27,47 +27,43 @@ By contributing to this project, you agree to the Developer Certificate of Origi
 ## Issue and pull request management
 
 Anyone can comment on issues and submit reviews for pull requests. In order to be assigned an issue or pull request, you can leave a `/assign <your Github ID>` comment on the issue or pull request.
-# Requirements
+# Requirements for Chart Contributors
 
-- Go 1.16
+- Helm 3.x
+- Understanding of Kubernetes and Helm chart development
+- Chart packages must follow Helm best practices
 
-# Develop new commands
+## Chart Development Guidelines
 
-- The project tries to follow the following grammar for the commands:
+All Helm charts in this repository should follow these guidelines:
 
-```bash
-clusteradm <cmd> [subcmd] [flags]
-```
+- Follow Helm chart naming conventions
+- Include proper versioning using semantic versioning
+- Provide comprehensive values.yaml with sensible defaults
+- Include proper chart documentation (README.md, NOTES.txt)
+- Follow Kubernetes resource naming conventions
+- Include appropriate labels and annotations
 
-- Each cmd/subcmd are in a package, the code is split in 3 files: The [cmd.go](pkg/cmd/version/cmd.go) which creates the cobra command, the [options.go](pkg/cmd/version/options.go) which defines the different option parameters for the command and the the [exec.go](pkg/cmd/version/exec.go) which contains the code to execute the command.
-- Each command must support the flag `--dry-run`.
-- The command uses [klog V2](https://github.com/kubernetes/klog) as logging package. All messages must be using `klog.V(x)`, in rare exception `klog.Error` and `klog.Warning` can be used.
+## Chart Testing
 
+Before submitting charts:
 
-## Resources
+- Test chart installation and upgrades using `helm install` and `helm upgrade`
+- Validate chart templates using `helm template`
+- Lint charts using `helm lint`
+- Test with different values configurations
 
-- Some commands needs resources files, in the project uses the `Go 1.16` `go:embed` functionality to store the resources files.
-- Each command package contains its own resources in the scenario package. The scenario package contains one go file which provides the `go:embed` `embed.FS` files. 
+## Submitting Charts
 
-## Client
+When submitting new charts or updates:
 
-- The [main](cmd/clusteradm.go) provides a cmdutil.Factory which can be laverage to get different clients and also the *rest.Config. The factory can be passed to the cobra.Command and then save in the Options.
+1. Package your chart using `helm package`
+2. Place the packaged chart (.tgz file) in the `charts/` directory
+3. Follow the naming convention: `<chart-name>-<version>.tgz`
+4. Submit a pull request with your changes
 
-```Go
-	kubeClient, err := o.factory.KubernetesClientSet()
-```
+## Automated Testing
 
-```Go
-config, err := f.ToRESTConfig()
-```
-
-## Unit tests
-
-- If the unit test needs files to be executed, these files are stored under the pair `<verb>/<noun>/test/unit`.
-A total coverage is shown when running `make test`. For the time being, the `cmd.go` and `client.go` are excluded from the total coverage.
-- The `make test` is part of the PR acceptance and it is launched by PROW.
-
-## Functional tests
-
-- The project runs functional-tests `make functional-test-full`, this test deploys a [KiND](https://kind.sigs.k8s.io/) cluster, install some resource using the applier and then runs a set of tests against that cluster [run-functional-tests.sh](build/run-functional-tests.sh).  A prerequisite is that Docker is already running.
-- The `make functional-tests-full` is part of the PR acceptance and it is launched using git-actions.
+- Chart validation is performed automatically on pull requests
+- Charts are tested for proper formatting and structure
+- Release workflows automatically publish approved charts to the repository
