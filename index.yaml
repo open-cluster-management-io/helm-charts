@@ -3,7 +3,7 @@ entries:
   argocd-agent-addon:
   - apiVersion: v2
     appVersion: 0.29.0
-    created: "2026-10-07T15:32:28.021027949Z"
+    created: "2026-10-07T15:32:46.161395028Z"
     description: Argo CD Agent Add-on for Open Cluster Management (Advanced Pull Model)
     digest: 9852ba4cabdc8cc6f2188ce5be9823816d38916898921490b2f63848db1787bf
     name: argocd-agent-addon
@@ -13,7 +13,7 @@ entries:
     version: 0.29.0
   - apiVersion: v2
     appVersion: 0.28.1
-    created: "2026-10-07T15:32:28.01213317Z"
+    created: "2026-10-07T15:32:46.155795044Z"
     description: Argo CD Agent Add-on for Open Cluster Management (Advanced Pull Model)
     digest: ec52c91134f568fa4279796effce42e1fc1c5cb6e2f5d956dfb85fd0a79fa2eb
     name: argocd-agent-addon
@@ -23,7 +23,7 @@ entries:
     version: 0.28.1
   - apiVersion: v2
     appVersion: 0.28.0
-    created: "2026-10-07T15:32:28.001454623Z"
+    created: "2026-10-07T15:32:46.150187823Z"
     description: Argo CD Agent Add-on for Open Cluster Management (Advanced Pull Model)
     digest: 3cf17c751422a1f12faedeac059975efba0dc678b658cac11cd7cc157fe1132c
     name: argocd-agent-addon
@@ -33,7 +33,7 @@ entries:
     version: 0.28.0
   - apiVersion: v2
     appVersion: 0.27.0
-    created: "2026-10-07T15:32:27.993148906Z"
+    created: "2026-10-07T15:32:46.144595845Z"
     description: Argo CD Agent Add-on for Open Cluster Management (Advanced Pull Model)
     digest: f2a6315f7fab3fcefbb8d514837316cdaaf2ac0e33d5023984744598bda951af
     name: argocd-agent-addon
@@ -43,7 +43,7 @@ entries:
     version: 0.27.0
   - apiVersion: v2
     appVersion: 0.26.0
-    created: "2026-10-07T15:32:27.98474239Z"
+    created: "2026-10-07T15:32:46.13963116Z"
     description: Argo CD Agent Addon for Open Cluster Management
     digest: fa26c1529a904d8d9795b65982ac849d3e3e6a305f3c29fc378b23801631d274
     name: argocd-agent-addon
@@ -53,7 +53,7 @@ entries:
     version: 0.26.0
   - apiVersion: v2
     appVersion: 0.25.2
-    created: "2026-10-07T15:32:27.976185716Z"
+    created: "2026-10-07T15:32:46.134294598Z"
     description: Argo CD Agent Addon for Open Cluster Management
     digest: 9aa3b76219afb4f09d821626209de21a3176ab22d2fdace0d4cdb19a5aea2f73
     name: argocd-agent-addon
@@ -63,7 +63,7 @@ entries:
     version: 0.25.2
   - apiVersion: v2
     appVersion: 0.25.1
-    created: "2026-10-07T15:32:27.967927065Z"
+    created: "2026-10-07T15:32:46.129165041Z"
     description: Argo CD Agent Addon for Open Cluster Management
     digest: a9e676dccda475f040c54f052dd553caf2618d0a6ec3374f09334791e6c92787
     name: argocd-agent-addon
@@ -73,7 +73,7 @@ entries:
     version: 0.25.1
   - apiVersion: v2
     appVersion: 0.25.0
-    created: "2026-10-07T15:32:27.95934398Z"
+    created: "2026-10-07T15:32:46.123679262Z"
     description: Argo CD Agent Addon for Open Cluster Management
     digest: abe5c11551027c7a46783f23cd9b83e6f5485037342c717d9ba5c7ec9f9d5418
     name: argocd-agent-addon
@@ -84,7 +84,7 @@ entries:
   argocd-pull-integration:
   - apiVersion: v2
     appVersion: 0.29.0
-    created: "2026-10-07T15:32:28.029470645Z"
+    created: "2026-10-07T15:32:46.16536231Z"
     description: Argo CD Pull Integration Add-on for Open Cluster Management (Basic
       Pull Model)
     digest: 6d0e8242dc92773d08e3c79155c4fc5ba9417762908f6149af9216ed90fbc204
@@ -95,7 +95,7 @@ entries:
     version: 0.29.0
   - apiVersion: v2
     appVersion: 0.28.1
-    created: "2026-10-07T15:32:28.028010558Z"
+    created: "2026-10-07T15:32:46.164710627Z"
     description: Argo CD Pull Integration Add-on for Open Cluster Management (Basic
       Pull Model)
     digest: 1e1ccee27f52aa6f1717167c4f17edf2049910e8488eb10845373cbd95f87e5e
@@ -106,7 +106,7 @@ entries:
     version: 0.28.1
   - apiVersion: v2
     appVersion: 0.28.0
-    created: "2026-10-07T15:32:28.026112937Z"
+    created: "2026-10-07T15:32:46.16398903Z"
     description: Argo CD Pull Integration Add-on for Open Cluster Management (Basic
       Pull Model)
     digest: d43d4c7cfae576965b5f98eeecbd33d3e4ac446997bc104b55246e59ab5734fa
@@ -117,7 +117,7 @@ entries:
     version: 0.28.0
   - apiVersion: v2
     appVersion: 0.27.0
-    created: "2026-10-07T15:32:28.025041311Z"
+    created: "2026-10-07T15:32:46.163293722Z"
     description: Argo CD Pull Integration Add-on for Open Cluster Management (Basic
       Pull Model)
     digest: 7688098ca3e7ba7f6083f2548357bbd30b901a00ec3b69683a3d7bea5e27b78a
@@ -128,7 +128,7 @@ entries:
     version: 0.27.0
   - apiVersion: v2
     appVersion: 0.26.1
-    created: "2026-10-07T15:32:28.024032512Z"
+    created: "2026-10-07T15:32:46.162603011Z"
     description: Argo CD Pull Integration Add-on for Open Cluster Management (Basic
       Pull Model)
     digest: c721e8646ad152195adb82924faa36d49ea78ebbe4b84fa58bd6138f2774efa1
@@ -139,7 +139,7 @@ entries:
     version: 0.26.1
   - apiVersion: v2
     appVersion: 0.26.0
-    created: "2026-10-07T15:32:28.022602927Z"
+    created: "2026-10-07T15:32:46.162001113Z"
     description: A Helm chart for OCM Argo CD Pull Model Integration
     digest: ed8e026d66a7e30ee7f14301039710e654c7e954716d4bde5502af99fd0dae5a
     name: argocd-pull-integration
@@ -150,7 +150,7 @@ entries:
   cluster-gateway-addon-manager:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.030716577Z"
+    created: "2026-10-07T15:32:46.172941674Z"
     description: A Helm chart for Cluster-Gateway Addon-Manager
     digest: 2c6df961070c76f149cb1d7ce95726b0a5db2f6ce1e01c58b94e04271655108c
     name: cluster-gateway-addon-manager
@@ -160,7 +160,7 @@ entries:
     version: 1.4.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.030471748Z"
+    created: "2026-10-07T15:32:46.17279102Z"
     description: A Helm chart for Cluster-Gateway Addon-Manager
     digest: 0b7ecfcfc47d4f6439a8253b2d341546f22b97688b71817ec72db52d8f9e1dfb
     name: cluster-gateway-addon-manager
@@ -170,7 +170,7 @@ entries:
     version: 1.3.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.030235476Z"
+    created: "2026-10-07T15:32:46.165821125Z"
     description: A Helm chart for Cluster-Gateway Addon-Manager
     digest: 3d57b563f9ab3ed0e6f84f893d2659d42935bd22e19418778f692223b71ffc44
     name: cluster-gateway-addon-manager
@@ -180,7 +180,7 @@ entries:
     version: 1.3.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.030008812Z"
+    created: "2026-10-07T15:32:46.165671442Z"
     description: A Helm chart for Cluster-Gateway Addon-Manager
     digest: 072ae441a743f4f7a5e837756f69e37ba19be56f89091f7dabe642bf2e3f0419
     name: cluster-gateway-addon-manager
@@ -190,7 +190,7 @@ entries:
     version: 1.1.12
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.02976749Z"
+    created: "2026-10-07T15:32:46.165530602Z"
     description: A Helm chart for Cluster-Gateway Addon-Manager
     digest: ded05a89cc101123152c77289815cc3938f5b835818c8253a37db279a053560b
     name: cluster-gateway-addon-manager
@@ -201,7 +201,7 @@ entries:
   cluster-manager:
   - apiVersion: v2
     appVersion: v1.3.1
-    created: "2026-10-07T15:32:28.049213395Z"
+    created: "2026-10-07T15:32:46.19862256Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -219,7 +219,7 @@ entries:
     version: 1.3.1
   - apiVersion: v2
     appVersion: v1.3.0
-    created: "2026-10-07T15:32:28.048572535Z"
+    created: "2026-10-07T15:32:46.19820673Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -237,7 +237,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: v1.2.1
-    created: "2026-10-07T15:32:28.047948067Z"
+    created: "2026-10-07T15:32:46.197628066Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -255,7 +255,7 @@ entries:
     version: 1.2.1
   - apiVersion: v2
     appVersion: v1.2.0
-    created: "2026-10-07T15:32:28.047316073Z"
+    created: "2026-10-07T15:32:46.197032602Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -273,7 +273,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: v1.1.2
-    created: "2026-10-07T15:32:28.046658292Z"
+    created: "2026-10-07T15:32:46.196673997Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -291,7 +291,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: v1.1.1
-    created: "2026-10-07T15:32:28.046051877Z"
+    created: "2026-10-07T15:32:46.196324345Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -309,7 +309,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: v1.1.0
-    created: "2026-10-07T15:32:28.04506501Z"
+    created: "2026-10-07T15:32:46.195944558Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -327,7 +327,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: v1.0.1
-    created: "2026-10-07T15:32:28.043698304Z"
+    created: "2026-10-07T15:32:46.195585522Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -345,7 +345,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2026-10-07T15:32:28.043002632Z"
+    created: "2026-10-07T15:32:46.195251573Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -363,7 +363,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: v0.16.1
-    created: "2026-10-07T15:32:28.042341494Z"
+    created: "2026-10-07T15:32:46.194909663Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -381,7 +381,7 @@ entries:
     version: 0.16.1
   - apiVersion: v2
     appVersion: v0.16.0
-    created: "2026-10-07T15:32:28.041621597Z"
+    created: "2026-10-07T15:32:46.194440142Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -399,7 +399,7 @@ entries:
     version: 0.16.0
   - apiVersion: v2
     appVersion: v0.15.2
-    created: "2026-10-07T15:32:28.040938398Z"
+    created: "2026-10-07T15:32:46.194046094Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -417,7 +417,7 @@ entries:
     version: 0.15.2
   - apiVersion: v2
     appVersion: v0.15.1
-    created: "2026-10-07T15:32:28.040308459Z"
+    created: "2026-10-07T15:32:46.19320218Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -435,7 +435,7 @@ entries:
     version: 0.15.1
   - apiVersion: v2
     appVersion: v0.15.0
-    created: "2026-10-07T15:32:28.039607787Z"
+    created: "2026-10-07T15:32:46.192850465Z"
     description: The Cluster Manager provides the multi-cluster hub, which can manage
       Kubernetes-based clusters across data centers,  public clouds, and private clouds.
       This Helm Chart supports the installation and upgrade of ClusterManager.
@@ -454,7 +454,7 @@ entries:
   cluster-permission:
   - apiVersion: v2
     appVersion: 0.16.2
-    created: "2026-10-07T15:32:28.05003872Z"
+    created: "2026-10-07T15:32:46.199070018Z"
     description: A controller for managing RBAC resources to the managed clusters.
     digest: e9ccd4d754f19ffa16f1eab76691612f7ac358e9b09b53865a47785f95a78967
     name: cluster-permission
@@ -464,7 +464,7 @@ entries:
     version: 0.16.2
   - apiVersion: v2
     appVersion: 0.16.1
-    created: "2026-10-07T15:32:28.049781458Z"
+    created: "2026-10-07T15:32:46.198929418Z"
     description: A controller for managing RBAC resources to the managed clusters.
     digest: cbcee8f4299a1fa4e0bc99d2006f16608b20b43c518103c2a80393d73ec6e5bc
     name: cluster-permission
@@ -474,7 +474,7 @@ entries:
     version: 0.16.1
   - apiVersion: v2
     appVersion: 0.15.0
-    created: "2026-10-07T15:32:28.049479112Z"
+    created: "2026-10-07T15:32:46.198781508Z"
     description: A controller for managing RBAC resources to the managed clusters.
     digest: 2b20d7ca69626e358bd6e658d501b555c659d2e117e618ec527df881544ee817
     name: cluster-permission
@@ -485,7 +485,7 @@ entries:
   cluster-proxy:
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-10-07T15:32:28.053992689Z"
+    created: "2026-10-07T15:32:46.200388797Z"
     dependencies:
     - name: cluster-proxy-common
       repository: file://../cluster-proxy-common
@@ -499,7 +499,7 @@ entries:
     version: 0.13.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-10-07T15:32:28.053070423Z"
+    created: "2026-10-07T15:32:46.200033537Z"
     dependencies:
     - name: cluster-proxy-common
       repository: file://../cluster-proxy-common
@@ -513,7 +513,7 @@ entries:
     version: 0.12.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-10-07T15:32:28.052119974Z"
+    created: "2026-10-07T15:32:46.199685928Z"
     dependencies:
     - name: cluster-proxy-common
       repository: file://../cluster-proxy-common
@@ -527,7 +527,7 @@ entries:
     version: 0.11.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-10-07T15:32:28.051000508Z"
+    created: "2026-10-07T15:32:46.199319381Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: 30128f5f211d3c3d6ab1040929e0d1ca7565869935aa60130c5b197d0481c75d
     name: cluster-proxy
@@ -537,7 +537,7 @@ entries:
     version: 0.10.0
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-10-07T15:32:28.058524764Z"
+    created: "2026-10-07T15:32:46.202971102Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: c19cda379863d91714eecc677b75cb499aa0717c881906003db686685283d619
     name: cluster-proxy
@@ -547,7 +547,7 @@ entries:
     version: 0.9.1
   - apiVersion: v2
     appVersion: 1.1.0
-    created: "2026-10-07T15:32:28.05795632Z"
+    created: "2026-10-07T15:32:46.202740958Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: 7c53808c8f979551804acf3e6c34f9538ae5a10c4575492dddcb18e5b63c16da
     name: cluster-proxy
@@ -557,7 +557,7 @@ entries:
     version: 0.9.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.056978899Z"
+    created: "2026-10-07T15:32:46.202515251Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: 2b78d970f0d9b6512ee653b4248fe611a4a63e10f5074542e431039346e1a9c4
     name: cluster-proxy
@@ -567,7 +567,7 @@ entries:
     version: 0.8.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.056459226Z"
+    created: "2026-10-07T15:32:46.202338357Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: 5bd779fdbd913e51c9dac1e0a4eac8d2c8c8f7bd2adf74af9eae5b4d31404c36
     name: cluster-proxy
@@ -577,7 +577,7 @@ entries:
     version: 0.7.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.05614114Z"
+    created: "2026-10-07T15:32:46.202157257Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: 568cdab8271ab7b97919829369dc7bf63d8a907dccc394da3490f25e0169f422
     name: cluster-proxy
@@ -587,7 +587,7 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.05582567Z"
+    created: "2026-10-07T15:32:46.201954624Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: d4c7f3631323272eb19c58738c6af13f1cdea26b2efddd7b23a481267e92bd78
     name: cluster-proxy
@@ -597,7 +597,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.055471918Z"
+    created: "2026-10-07T15:32:46.20177116Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: fc4255ebf2bc1b57f6e87ed92755dbf218085851aacd78e37b58628c2c046485
     name: cluster-proxy
@@ -607,7 +607,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.055171295Z"
+    created: "2026-10-07T15:32:46.201594857Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: 68387f465d6ccdf00bb577ca964dc4a01855eceef8d017a3b7c05b5fe5dcf3ca
     name: cluster-proxy
@@ -617,7 +617,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.054869941Z"
+    created: "2026-10-07T15:32:46.201401328Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: 5e6feaf49a5fa9633e2a1de0610dca25d0fcd09f18facf9f7f66ace19222c582
     name: cluster-proxy
@@ -627,7 +627,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.054561734Z"
+    created: "2026-10-07T15:32:46.20104727Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: 785af4af73680c42a2e8f6aa38e8115950f2238a6c27ac0e668180387fac1389
     name: cluster-proxy
@@ -637,7 +637,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.054281169Z"
+    created: "2026-10-07T15:32:46.200546152Z"
     description: A Helm chart for Cluster-Proxy OCM Addon
     digest: d25d9067233582c6d86397b079f462506d846c243ee6da46348a0460d550f2eb
     name: cluster-proxy
@@ -648,7 +648,7 @@ entries:
   dummy:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.058873156Z"
+    created: "2026-10-07T15:32:46.203110049Z"
     description: A Helm chart for Dummy
     digest: fefb7cfb5c155630359148336a4b911aee2d9fa6813fe78a45efcf663b5cee8c
     name: dummy
@@ -658,7 +658,7 @@ entries:
     version: 1.0.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.058772988Z"
+    created: "2026-10-07T15:32:46.203069318Z"
     description: A Helm chart for Dummy
     digest: d2f94fe620aded1088e38915d53e606b69c77f980e266a2a707efe31421778f7
     name: dummy
@@ -668,7 +668,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.058637184Z"
+    created: "2026-10-07T15:32:46.203018002Z"
     description: A Helm chart for Dummy
     digest: 898804b528b7f58252f0cae5087b31a69c687393c63f2df3994ca5b4cfaa6740
     name: dummy
@@ -679,7 +679,7 @@ entries:
   dynamic-scoring-framework:
   - apiVersion: v2
     appVersion: 0.1.0
-    created: "2026-10-07T15:32:28.059222139Z"
+    created: "2026-10-07T15:32:46.203286352Z"
     description: A Helm chart for Open Cluster Management Dynamic Scoring Framework
       Addon
     digest: 9171caa582c227b3aeb1e734345c75fe4977ec7ee0dc13cbf6cf1064a5cd262e
@@ -694,7 +694,7 @@ entries:
   fleetconfig-controller:
   - apiVersion: v2
     appVersion: v0.3.6
-    created: "2026-10-07T15:32:28.356920887Z"
+    created: "2026-10-07T15:32:46.372827843Z"
     description: Declarative management of OCM multi-clusters.
     digest: 646074558d4b5c45e437959a123edd2c161712e8b97365018ba3288a71542b78
     maintainers:
@@ -706,7 +706,7 @@ entries:
     version: 0.3.6
   - apiVersion: v2
     appVersion: v0.3.5
-    created: "2026-10-07T15:32:28.352266019Z"
+    created: "2026-10-07T15:32:46.370302554Z"
     description: Declarative management of OCM multi-clusters.
     digest: b930122f898ff5900aff6e0b855793b857efd050d8a81dd19d1c9601033f6911
     maintainers:
@@ -718,7 +718,7 @@ entries:
     version: 0.3.5
   - apiVersion: v2
     appVersion: v0.3.4
-    created: "2026-10-07T15:32:28.34775728Z"
+    created: "2026-10-07T15:32:46.368187907Z"
     description: Declarative management of OCM multi-clusters.
     digest: ced1e79da58d749450af708c3d2f319593d2d6112cb9d3a5b184f58eabc17303
     maintainers:
@@ -730,7 +730,7 @@ entries:
     version: 0.3.4
   - apiVersion: v2
     appVersion: v0.3.3
-    created: "2026-10-07T15:32:28.344073865Z"
+    created: "2026-10-07T15:32:46.365454076Z"
     description: Declarative management of OCM multi-clusters.
     digest: 36ab6d43c04c883f45f41c44a8a968538924bfed736688ed962dba2b6df1ad66
     maintainers:
@@ -742,7 +742,7 @@ entries:
     version: 0.3.3
   - apiVersion: v2
     appVersion: v0.3.2
-    created: "2026-10-07T15:32:28.339081897Z"
+    created: "2026-10-07T15:32:46.362882563Z"
     description: Declarative management of OCM multi-clusters.
     digest: 69cdc2bd2af85be14ec472f11cca2a4446cc3a652c987fac430ad30d5303dbea
     maintainers:
@@ -754,7 +754,7 @@ entries:
     version: 0.3.2
   - apiVersion: v2
     appVersion: v0.3.1
-    created: "2026-10-07T15:32:28.334249644Z"
+    created: "2026-10-07T15:32:46.360298255Z"
     description: Declarative management of OCM multi-clusters.
     digest: 18cea0f1714e5b6c5c31cddfd15523a35e5f78a2ae6374556290b7e1ad2dc19e
     maintainers:
@@ -766,7 +766,7 @@ entries:
     version: 0.3.1
   - apiVersion: v2
     appVersion: v0.3.0
-    created: "2026-10-07T15:32:28.330323185Z"
+    created: "2026-10-07T15:32:46.358326331Z"
     description: Declarative management of OCM multi-clusters.
     digest: 5b926706d46baeac50d3669e7c3f1a1303f013f00a3c5488c9c05c58b532e7f0
     maintainers:
@@ -778,7 +778,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: v0.2.5
-    created: "2026-10-07T15:32:28.325779015Z"
+    created: "2026-10-07T15:32:46.355897956Z"
     description: Declarative management of OCM multi-clusters.
     digest: b09600c94758d5d537357ffc593867755859267e7f8382e066f11d6c3ed99060
     maintainers:
@@ -790,7 +790,7 @@ entries:
     version: 0.2.5
   - apiVersion: v2
     appVersion: v0.2.4
-    created: "2026-10-07T15:32:28.321234694Z"
+    created: "2026-10-07T15:32:46.353587763Z"
     description: Declarative management of OCM multi-clusters.
     digest: 2d43cf29ddbbc4c690e0c4b757cf2072eed1deede082794f205be88280d96bdc
     maintainers:
@@ -802,7 +802,7 @@ entries:
     version: 0.2.4
   - apiVersion: v2
     appVersion: v0.2.3
-    created: "2026-10-07T15:32:28.318413263Z"
+    created: "2026-10-07T15:32:46.351744191Z"
     description: Declarative management of OCM multi-clusters.
     digest: 5e5547ee3ab2af9f92b22f3902c6698a871344ba7c4b29451b15eb7d040c5572
     maintainers:
@@ -814,7 +814,7 @@ entries:
     version: 0.2.3
   - apiVersion: v2
     appVersion: v0.2.2
-    created: "2026-10-07T15:32:28.314614192Z"
+    created: "2026-10-07T15:32:46.349373377Z"
     description: Declarative management of OCM multi-clusters.
     digest: ce418ab3d9dae389c17a91803523858374a1a2b5829e1f4d7cab4f11fd696ca1
     maintainers:
@@ -826,7 +826,7 @@ entries:
     version: 0.2.2
   - apiVersion: v2
     appVersion: v0.2.1
-    created: "2026-10-07T15:32:28.311878992Z"
+    created: "2026-10-07T15:32:46.347362925Z"
     description: Declarative management of OCM multi-clusters.
     digest: 088375eecc6994fdf4fd840ee5e06df573d73d9230b4ee27c47025e14384e1ee
     maintainers:
@@ -838,7 +838,7 @@ entries:
     version: 0.2.1
   - apiVersion: v2
     appVersion: v0.2.0
-    created: "2026-10-07T15:32:28.307757998Z"
+    created: "2026-10-07T15:32:46.345183442Z"
     description: Declarative management of OCM multi-clusters.
     digest: 0048589dfecfc5906530418abb95027903762d4511c2ff6196e66db5fb67698b
     maintainers:
@@ -850,7 +850,7 @@ entries:
     version: 0.2.0
   - apiVersion: v2
     appVersion: v0.1.9
-    created: "2026-10-07T15:32:28.304658727Z"
+    created: "2026-10-07T15:32:46.343133291Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -867,7 +867,7 @@ entries:
     version: 0.1.9
   - apiVersion: v2
     appVersion: v0.1.8
-    created: "2026-10-07T15:32:28.291235034Z"
+    created: "2026-10-07T15:32:46.33670137Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -884,7 +884,7 @@ entries:
     version: 0.1.8
   - apiVersion: v2
     appVersion: v0.1.7
-    created: "2026-10-07T15:32:28.279187454Z"
+    created: "2026-10-07T15:32:46.330332187Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -901,7 +901,7 @@ entries:
     version: 0.1.7
   - apiVersion: v2
     appVersion: v0.1.6
-    created: "2026-10-07T15:32:28.268842458Z"
+    created: "2026-10-07T15:32:46.323498441Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -918,7 +918,7 @@ entries:
     version: 0.1.6
   - apiVersion: v2
     appVersion: v0.1.5
-    created: "2026-10-07T15:32:28.257021517Z"
+    created: "2026-10-07T15:32:46.316708991Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -935,7 +935,7 @@ entries:
     version: 0.1.5
   - apiVersion: v2
     appVersion: v0.1.4
-    created: "2026-10-07T15:32:28.244554251Z"
+    created: "2026-10-07T15:32:46.310378081Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -952,7 +952,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: v0.1.3
-    created: "2026-10-07T15:32:28.231945364Z"
+    created: "2026-10-07T15:32:46.303362358Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -969,7 +969,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: v0.1.2
-    created: "2026-10-07T15:32:28.220767399Z"
+    created: "2026-10-07T15:32:46.296577505Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -986,7 +986,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: v0.1.1
-    created: "2026-10-07T15:32:28.208992522Z"
+    created: "2026-10-07T15:32:46.290377594Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1003,7 +1003,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: v0.1.0
-    created: "2026-10-07T15:32:28.197140147Z"
+    created: "2026-10-07T15:32:46.283852479Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1020,7 +1020,7 @@ entries:
     version: 0.1.0
   - apiVersion: v2
     appVersion: v0.0.14
-    created: "2026-10-07T15:32:28.117427375Z"
+    created: "2026-10-07T15:32:46.236409167Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1037,7 +1037,7 @@ entries:
     version: 0.0.14
   - apiVersion: v2
     appVersion: v0.0.13
-    created: "2026-10-07T15:32:28.108563764Z"
+    created: "2026-10-07T15:32:46.230675819Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1054,7 +1054,7 @@ entries:
     version: 0.0.13
   - apiVersion: v2
     appVersion: v0.0.12
-    created: "2026-10-07T15:32:28.099594481Z"
+    created: "2026-10-07T15:32:46.225407764Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1071,7 +1071,7 @@ entries:
     version: 0.0.12
   - apiVersion: v2
     appVersion: v0.0.11
-    created: "2026-10-07T15:32:28.090521722Z"
+    created: "2026-10-07T15:32:46.220125925Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1088,7 +1088,7 @@ entries:
     version: 0.0.11
   - apiVersion: v2
     appVersion: v0.0.10
-    created: "2026-10-07T15:32:28.0812671Z"
+    created: "2026-10-07T15:32:46.214868937Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1105,7 +1105,7 @@ entries:
     version: 0.0.10
   - apiVersion: v2
     appVersion: v0.0.9
-    created: "2026-10-07T15:32:28.186773543Z"
+    created: "2026-10-07T15:32:46.277360513Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1122,7 +1122,7 @@ entries:
     version: 0.0.9
   - apiVersion: v2
     appVersion: v0.0.8
-    created: "2026-10-07T15:32:28.177954677Z"
+    created: "2026-10-07T15:32:46.272157631Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1139,7 +1139,7 @@ entries:
     version: 0.0.8
   - apiVersion: v2
     appVersion: v0.0.7
-    created: "2026-10-07T15:32:28.169535386Z"
+    created: "2026-10-07T15:32:46.267229169Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1156,7 +1156,7 @@ entries:
     version: 0.0.7
   - apiVersion: v2
     appVersion: v0.0.6
-    created: "2026-10-07T15:32:28.161048971Z"
+    created: "2026-10-07T15:32:46.262307322Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1173,7 +1173,7 @@ entries:
     version: 0.0.6
   - apiVersion: v2
     appVersion: v0.0.5
-    created: "2026-10-07T15:32:28.152288794Z"
+    created: "2026-10-07T15:32:46.257445785Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1190,7 +1190,7 @@ entries:
     version: 0.0.5
   - apiVersion: v2
     appVersion: v0.0.4
-    created: "2026-10-07T15:32:28.143702523Z"
+    created: "2026-10-07T15:32:46.252508905Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1207,7 +1207,7 @@ entries:
     version: 0.0.4
   - apiVersion: v2
     appVersion: v0.0.3
-    created: "2026-10-07T15:32:28.135039398Z"
+    created: "2026-10-07T15:32:46.247589567Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1224,7 +1224,7 @@ entries:
     version: 0.0.3
   - apiVersion: v2
     appVersion: v0.0.2
-    created: "2026-10-07T15:32:28.12611811Z"
+    created: "2026-10-07T15:32:46.242277066Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1241,7 +1241,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: v0.0.1
-    created: "2026-10-07T15:32:28.070819997Z"
+    created: "2026-10-07T15:32:46.209536422Z"
     dependencies:
     - condition: cert-manager.enabled
       name: cert-manager
@@ -1259,7 +1259,7 @@ entries:
   klusterlet:
   - apiVersion: v2
     appVersion: v1.4.0
-    created: "2026-10-07T15:32:28.369373442Z"
+    created: "2026-10-07T15:32:46.379951187Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: 8ed1584aa47d4841c95f8ef4bb6eeb79ad64cb5836c4491c922e10afb9d766e9
@@ -1276,7 +1276,7 @@ entries:
     version: 1.4.0
   - apiVersion: v2
     appVersion: v1.3.1
-    created: "2026-10-07T15:32:28.368675496Z"
+    created: "2026-10-07T15:32:46.379540234Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: c99277a0ff98e41f3b701a3d6e5d00c068f7b6998b71e068df4668e623a7dd01
@@ -1293,7 +1293,7 @@ entries:
     version: 1.3.1
   - apiVersion: v2
     appVersion: v1.3.0
-    created: "2026-10-07T15:32:28.36801002Z"
+    created: "2026-10-07T15:32:46.379113637Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: 6b3a4c0359781d6e2d17139ec55c156df39d804c169577f0661684740d763b37
@@ -1310,7 +1310,7 @@ entries:
     version: 1.3.0
   - apiVersion: v2
     appVersion: v1.2.1
-    created: "2026-10-07T15:32:28.36726717Z"
+    created: "2026-10-07T15:32:46.378707921Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: dd001cc7f8a68edcc717255ec371581da7b5546f581ad54f68cdd8201fb89de7
@@ -1327,7 +1327,7 @@ entries:
     version: 1.2.1
   - apiVersion: v2
     appVersion: v1.2.0
-    created: "2026-10-07T15:32:28.366568913Z"
+    created: "2026-10-07T15:32:46.37781297Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: b207d801202843adc56444473599b16be8ce016534175d8febe51484ffae5da7
@@ -1344,7 +1344,7 @@ entries:
     version: 1.2.0
   - apiVersion: v2
     appVersion: v1.1.3
-    created: "2026-10-07T15:32:28.365905832Z"
+    created: "2026-10-07T15:32:46.377408777Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: 8d216aa0aca21d0ad070664c850a698786113a9aeb9551b25cba55cf73367a79
@@ -1361,7 +1361,7 @@ entries:
     version: 1.1.3
   - apiVersion: v2
     appVersion: v1.1.2
-    created: "2026-10-07T15:32:28.365131883Z"
+    created: "2026-10-07T15:32:46.377039656Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: f9b458b855abb45570801ec1bdd55682a09c7d942171aafc60097b348ef4e3d6
@@ -1378,7 +1378,7 @@ entries:
     version: 1.1.2
   - apiVersion: v2
     appVersion: v1.1.1
-    created: "2026-10-07T15:32:28.362856226Z"
+    created: "2026-10-07T15:32:46.376675402Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: c72c06e64d4c9866db5b519cd8cb80ac00086e2f1e26dbdfc8e2cf6c9f231b31
@@ -1395,7 +1395,7 @@ entries:
     version: 1.1.1
   - apiVersion: v2
     appVersion: v1.1.0
-    created: "2026-10-07T15:32:28.36204072Z"
+    created: "2026-10-07T15:32:46.376321764Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: f42c27133bf248112c82ffdc8e995de8d25ec158cae17eff06bdaf9ac3257171
@@ -1412,7 +1412,7 @@ entries:
     version: 1.1.0
   - apiVersion: v2
     appVersion: v1.0.1
-    created: "2026-10-07T15:32:28.361352031Z"
+    created: "2026-10-07T15:32:46.375955427Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: e6defc5b739e25f230639303cfa39c7cbb2c51c682f02e598551edb6d9d2e44a
@@ -1429,7 +1429,7 @@ entries:
     version: 1.0.1
   - apiVersion: v2
     appVersion: v1.0.0
-    created: "2026-10-07T15:32:28.360716231Z"
+    created: "2026-10-07T15:32:46.375585695Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: d69fbdfb73ce0ea19882a46f09153b2b363d21d8c1ecdae217f6cef0207d864d
@@ -1446,7 +1446,7 @@ entries:
     version: 1.0.0
   - apiVersion: v2
     appVersion: v0.16.1
-    created: "2026-10-07T15:32:28.360044393Z"
+    created: "2026-10-07T15:32:46.375190836Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: eb55c9dfde921620988238c6d74962b357d54b02d71221b1c9f6b403c1f5c2cf
@@ -1463,7 +1463,7 @@ entries:
     version: 0.16.1
   - apiVersion: v2
     appVersion: v0.16.0
-    created: "2026-10-07T15:32:28.359423852Z"
+    created: "2026-10-07T15:32:46.37462779Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: a6666724fe803ffce6386316d4d7f8d3b101798747318d6dc1ad1c44ab8d1113
@@ -1480,7 +1480,7 @@ entries:
     version: 0.16.0
   - apiVersion: v2
     appVersion: v0.15.2
-    created: "2026-10-07T15:32:28.358828547Z"
+    created: "2026-10-07T15:32:46.373861526Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: ee94744a9a296ad149df2381797194859a1584a0825091b36023d35c3bf90691
@@ -1497,7 +1497,7 @@ entries:
     version: 0.15.2
   - apiVersion: v2
     appVersion: v0.15.1
-    created: "2026-10-07T15:32:28.358202135Z"
+    created: "2026-10-07T15:32:46.373531624Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: e58a9ab160ea5e1ab5d38d89a281c02997a96ca958cb7189d5a93f387b1645cd
@@ -1514,7 +1514,7 @@ entries:
     version: 0.15.1
   - apiVersion: v2
     appVersion: v0.15.0
-    created: "2026-10-07T15:32:28.357535507Z"
+    created: "2026-10-07T15:32:46.373180179Z"
     description: The Klusterlet provides the registration to the Hub clusters as a
       managed cluster. This operator supports the installation and upgrade of Klusterlet.
     digest: c6b03710f78b25d926904a23fb6ff6249ee04ca0160bc5628a35bac345833a8c
@@ -1532,7 +1532,7 @@ entries:
   kueue-addon:
   - apiVersion: v2
     appVersion: 0.11.9
-    created: "2026-10-07T15:32:28.370611597Z"
+    created: "2026-10-07T15:32:46.380400939Z"
     description: A Helm chart for Open Cluster Management Kueue Addon
     digest: 7e2fe14083174dc10d8e67ab0b561d40202ae8391958ad0a2423c84ae98431f9
     maintainers:
@@ -1545,7 +1545,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 0.9.0
-    created: "2026-10-07T15:32:28.369908113Z"
+    created: "2026-10-07T15:32:46.380223994Z"
     description: A Helm chart for Open Cluster Management Kueue Addon
     digest: f945bf0f852e31b4e4627c8cf59a75b9f7e3d7a762a01f55e23a2eb93fcafefe
     maintainers:
@@ -1558,7 +1558,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 0.9.0
-    created: "2026-10-07T15:32:28.369624963Z"
+    created: "2026-10-07T15:32:46.380087Z"
     description: A Helm chart for Open Cluster Management Kueue Addon
     digest: 1148138867724ad8a3073a5546798f75707486ca7db0d0d82ef75424b2b72a63
     maintainers:
@@ -1572,7 +1572,21 @@ entries:
   managed-serviceaccount:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.372391301Z"
+    created: "2026-10-07T15:32:46.381152821Z"
+    dependencies:
+    - name: managed-serviceaccount-common
+      repository: file://../managed-serviceaccount-common
+      version: 0.1.0
+    description: A Helm chart for Managed ServiceAccount Addon
+    digest: f68ffba02254b1160d85618b13b48202138a9b3a980d4a177b4168368883aeee
+    name: managed-serviceaccount
+    type: application
+    urls:
+    - https://open-cluster-management.io/helm-charts/managed-serviceaccount-0.12.0.tgz
+    version: 0.12.0
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-10-07T15:32:46.380860805Z"
     dependencies:
     - name: managed-serviceaccount-common
       repository: file://../managed-serviceaccount-common
@@ -1586,7 +1600,7 @@ entries:
     version: 0.11.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.371521753Z"
+    created: "2026-10-07T15:32:46.380558414Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: ddd8b7da55667b534102397abd2e61988f9ead8a0e97b942731f869ed0b06dbf
     name: managed-serviceaccount
@@ -1596,7 +1610,7 @@ entries:
     version: 0.10.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.374794539Z"
+    created: "2026-10-07T15:32:46.382817381Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: 716e092aef284697455d214f1d113e70715e7b6223021c4dd8190666f3b24775
     name: managed-serviceaccount
@@ -1606,7 +1620,7 @@ entries:
     version: 0.9.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.374481804Z"
+    created: "2026-10-07T15:32:46.382671383Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: 55fdd5fcaf4e6200de38d762d54498736ad115baed1589632d4f04cc178c9cf4
     name: managed-serviceaccount
@@ -1616,7 +1630,7 @@ entries:
     version: 0.8.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.37420199Z"
+    created: "2026-10-07T15:32:46.382519937Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: 4098eb2ca2183f12cfd7d1d5f0b7cc0b27b187908f335bf8afabdf6a7eb52b92
     name: managed-serviceaccount
@@ -1626,7 +1640,7 @@ entries:
     version: 0.7.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.373904393Z"
+    created: "2026-10-07T15:32:46.382352216Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: 621a11faa6425e816fd3e598b126d247992f69b970f5493ac2228b4fd2486d63
     name: managed-serviceaccount
@@ -1636,7 +1650,7 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.373596036Z"
+    created: "2026-10-07T15:32:46.382166379Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: 339e5985deeb398aed786e9ebbf005efff5619313d485576a6109c2c4f7a62f3
     name: managed-serviceaccount
@@ -1646,7 +1660,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.373307415Z"
+    created: "2026-10-07T15:32:46.381778785Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: bdb70e7105081f3f163ce743ed2cbc6487f5a885537c316e026f6f3000101241
     name: managed-serviceaccount
@@ -1656,7 +1670,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.372955587Z"
+    created: "2026-10-07T15:32:46.381460801Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: a6adc57fd7f346b4f159534b697e6df8cc52270adbcdb2c3c0d6dbd08b466638
     name: managed-serviceaccount
@@ -1666,7 +1680,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.372657509Z"
+    created: "2026-10-07T15:32:46.381286481Z"
     description: A Helm chart for Managed ServiceAccount Addon
     digest: 880b1eb6cc381f7b110f3b6295017e9677f972293f2879c87d25fac0eb20b7e6
     name: managed-serviceaccount
@@ -1677,7 +1691,7 @@ entries:
   multicluster-controlplane:
   - apiVersion: v2
     appVersion: 0.8.0
-    created: "2026-10-07T15:32:28.378093344Z"
+    created: "2026-10-07T15:32:46.384031002Z"
     description: A Helm chart for multicluster-controlplane
     digest: 4226695f31a7ad14788210635343a8b85ea5d5aca3270c4b7b06af1a3745138d
     name: multicluster-controlplane
@@ -1687,7 +1701,7 @@ entries:
     version: 0.8.0
   - apiVersion: v2
     appVersion: 0.7.0
-    created: "2026-10-07T15:32:28.377150619Z"
+    created: "2026-10-07T15:32:46.383856592Z"
     description: A Helm chart for multicluster-controlplane
     digest: 801263d69824464d0a684cb2f371f8dd5e97d0ca49f04a0e8c3f2e09acc1fb7f
     name: multicluster-controlplane
@@ -1697,7 +1711,7 @@ entries:
     version: 0.7.0
   - apiVersion: v2
     appVersion: 0.6.0
-    created: "2026-10-07T15:32:28.376437645Z"
+    created: "2026-10-07T15:32:46.383688722Z"
     description: A Helm chart for multicluster-controlplane
     digest: fa3acb79be9fc2ef45858dc2f25e232d8b2e5db14924ae6f1f43ff173bb85b05
     name: multicluster-controlplane
@@ -1707,7 +1721,7 @@ entries:
     version: 0.6.0
   - apiVersion: v2
     appVersion: 0.5.0
-    created: "2026-10-07T15:32:28.37610938Z"
+    created: "2026-10-07T15:32:46.383524807Z"
     description: A Helm chart for multicluster-controlplane
     digest: d2a2595a87f58f32b35e9279c4eef823391c0a8049eaf783f45397af267cbccd
     name: multicluster-controlplane
@@ -1717,7 +1731,7 @@ entries:
     version: 0.5.0
   - apiVersion: v2
     appVersion: 0.4.0
-    created: "2026-10-07T15:32:28.375772049Z"
+    created: "2026-10-07T15:32:46.383347863Z"
     description: A Helm chart for multicluster-controlplane
     digest: 82ee5c057ccad33901d3107442a3957197234e7b805ce21f890c4204378165b9
     name: multicluster-controlplane
@@ -1727,7 +1741,7 @@ entries:
     version: 0.4.0
   - apiVersion: v2
     appVersion: 0.3.0
-    created: "2026-10-07T15:32:28.375424678Z"
+    created: "2026-10-07T15:32:46.383162686Z"
     description: A Helm chart for multicluster-controlplane
     digest: f21669702d42278b01b2935b9279228f834a54e28fe688739940ae2081c1efc3
     name: multicluster-controlplane
@@ -1737,7 +1751,7 @@ entries:
     version: 0.3.0
   - apiVersion: v2
     appVersion: 0.2.0
-    created: "2026-10-07T15:32:28.375097336Z"
+    created: "2026-10-07T15:32:46.382982868Z"
     description: A Helm chart for multicluster-controlplane
     digest: db7ec3ef3eafeb20fe3f02db8792774981cd8c686816f1e6509d1ed05ac9e1a1
     name: multicluster-controlplane
@@ -1748,7 +1762,7 @@ entries:
   multicluster-mesh:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.378941947Z"
+    created: "2026-10-07T15:32:46.384239614Z"
     description: A Helm chart for Multicluster Service Mesh OCM Addon
     digest: 9b2bdcadadc2c42bb8a31eb0b8dd9367089ee7064ed5dd97dc7aea297f6503f5
     name: multicluster-mesh
@@ -1758,7 +1772,7 @@ entries:
     version: 0.0.2
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.378682521Z"
+    created: "2026-10-07T15:32:46.384138012Z"
     description: A Helm chart for Multicluster Service Mesh OCM Addon
     digest: d32797c95f6c2b1f97938131373ee2955669e62523ce4ca2e40e486f05537fd7
     name: multicluster-mesh
@@ -1769,7 +1783,7 @@ entries:
   resource-usage-collect-addon:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-10-07T15:32:28.379227982Z"
+    created: "2026-10-07T15:32:46.384401385Z"
     description: A Helm chart for the Open Cluster Management resource-usage-collect-addon
     digest: fe9ecac34f7a6e7c891c424a18d5b01f6bf4cd3adef48689544dd2e881593ac7
     keywords:
@@ -1785,4 +1799,4 @@ entries:
     urls:
     - https://open-cluster-management.io/helm-charts/resource-usage-collect-addon-0.1.0.tgz
     version: 0.1.0
-generated: "2026-10-07T15:32:27.948190022Z"
+generated: "2026-10-07T15:32:46.117587068Z"
