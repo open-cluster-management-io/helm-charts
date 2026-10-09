@@ -29,12 +29,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Turnstyle
-        uses: softprops/turnstyle@v1
+        uses: softprops/turnstyle@3805450be63b8c80577dc253e8c17e9132036df4 # v3.3.3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ env.PUBLISH_BRANCH }}
           token: ${{ secrets.OCM_BOT_PAT }}
@@ -48,7 +48,7 @@ jobs:
             echo "releaseTag=${{ github.event.inputs.component }}/v${{ github.event.inputs.version }}" >> $GITHUB_OUTPUT
           fi
 
-      - uses: robinraju/release-downloader@v1.9
+      - uses: robinraju/release-downloader@28fc21f50d76778e7023361aa1f863e717d3d56f # v1.13
         with:
           repository: "${{ github.event.inputs.repo }}"
           tag: "${{ steps.release-tag.outputs.releaseTag }}"
