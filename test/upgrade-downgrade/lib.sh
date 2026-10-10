@@ -1,41 +1,42 @@
 # Copyright Contributors to the Open Cluster Management project
-# Helpers shared by the upgrade test flows. Sourced by helm.sh and clusteradm.sh.
+# Helpers shared by the upgrade and downgrade test flows. Sourced by helm.sh and clusteradm.sh.
 
 CLUSTER_NAME=${CLUSTER_NAME:-ocm-upgrade}
 KIND_NODE_IMAGE=${KIND_NODE_IMAGE:-kindest/node:v1.29.2}
 REGISTRY=quay.io/open-cluster-management
 IMAGES=(registration-operator registration work placement addon-manager)
-NAMESPACES=(open-cluster-management open-cluster-management-hub open-cluster-management-agent)
 MANAGED_CLUSTER=cluster1
+NAMESPACES=(open-cluster-management open-cluster-management-hub open-cluster-management-agent)
 START=$(date +%s)
-SUMMARY=${GITHUB_STEP_SUMMARY:-/dev/null}
 CURRENT_STEP=""
 CURRENT_START=$START
-IMAGE_NOTES=""
 
-# summary_start <title>: start the job summary table. The result of each step is added as the
-# next step starts, and the last one when the script exits.
-summary_start() {
-  printf '### %s\n\n| Step | Result | Time |\n|---|---|---|\n' "$1" >> "$SUMMARY"
-  trap 'summary_end $?' EXIT
+# Results for the run summary (summary.sh): RESULT_DIR/steps.tsv has "<step> <passed|failed> <seconds>",
+# RESULT_DIR/images.tsv has "<image> <digest> <reported version>". Nothing is written when RESULT_DIR is unset.
+RESULT_DIR=${RESULT_DIR:-}
+if [ -n "$RESULT_DIR" ]; then
+  mkdir -p "$RESULT_DIR"
+  : > "$RESULT_DIR/steps.tsv"
+  : > "$RESULT_DIR/images.tsv"
+fi
+trap 'finish $?' EXIT
+
+result() { # result <passed|failed>: record the current step
+  [ -n "$RESULT_DIR" ] && [ -n "$CURRENT_STEP" ] || return 0
+  printf '%s\t%s\t%s\n' "$CURRENT_STEP" "$1" $(( $(date +%s) - CURRENT_START )) >> "$RESULT_DIR/steps.tsv"
 }
 
-summary_row() { # summary_row <result>
-  [ -n "$CURRENT_STEP" ] || return 0
-  echo "| $CURRENT_STEP | $1 | $(( $(date +%s) - CURRENT_START ))s |" >> "$SUMMARY"
-}
-
-summary_end() {
-  if [ "$1" -eq 0 ]; then summary_row "✅ passed"; else summary_row "❌ failed, see the log"; fi
-  printf '\nImages:\n%s\n' "$IMAGE_NOTES" >> "$SUMMARY"
+finish() {
+  if [ "$1" -eq 0 ]; then result passed; else result failed; fi
   echo; echo "=== $([ "$1" -eq 0 ] && echo passed || echo failed) (t+$(( $(date +%s) - START ))s)"
 }
 
+# step <setup|install|upgrade|downgrade> <description>
 step() {
-  summary_row "✅ passed"
-  CURRENT_STEP=$*
+  result passed
+  CURRENT_STEP=$1
   CURRENT_START=$(date +%s)
-  echo; echo "=== $* (t+$(( CURRENT_START - START ))s)"
+  echo; echo "=== $2 (t+$(( CURRENT_START - START ))s)"
 }
 
 # wait_for <description> <expected output> <command...>
@@ -68,10 +69,10 @@ pull_images() {
       docker exec "$node" crictl pull "$REGISTRY/$img:$tag" >/dev/null
     done
     ref=$REGISTRY/registration-operator:$tag
-    line="$ref $(docker exec "$node" crictl inspecti -o go-template --template '{{index .status.repoDigests 0}}' "$ref" | cut -d@ -f2)"
-    line="$line reports $(docker run --rm --pull always --entrypoint /registration-operator "$ref" --version 2>&1 | tail -1)"
-    echo "$line"
-    IMAGE_NOTES="$IMAGE_NOTES- \`$line\`"$'\n'
+    digest=$(docker exec "$node" crictl inspecti -o go-template --template '{{index .status.repoDigests 0}}' "$ref" | cut -d@ -f2)
+    version=$(docker run --rm --pull always --entrypoint /registration-operator "$ref" --version 2>&1 | tail -1 | awk '{print $NF}')
+    echo "$ref $digest reports $version"
+    [ -z "$RESULT_DIR" ] || printf '%s\t%s\t%s\n' "${ref##*/}" "$digest" "$version" >> "$RESULT_DIR/images.tsv"
   done
 }
 

@@ -1,4 +1,4 @@
-# Upgrade test
+# Upgrade and downgrade test
 
 Installs an OCM release, upgrades to ocm `main` (`latest` images), then downgrades back to the release.
 After every step it checks that:
@@ -10,17 +10,20 @@ After every step it checks that:
 
 One kind cluster acts as both hub and managed cluster.
 
-| Flow | Install and upgrade | Klusterlet mode |
-|---|---|---|
-| `helm.sh` | `helm upgrade --install` with the release charts and the charts on ocm `main` | Singleton |
-| `clusteradm.sh` | `clusteradm init/join`, then `clusteradm upgrade --bundle-version` | Default |
+| Script | Install and upgrade |
+|---|---|
+| `helm.sh` | `helm upgrade --install` with the release charts and the charts on ocm `main` |
+| `clusteradm.sh` | `clusteradm init/join`, then `clusteradm upgrade --bundle-version` |
 
-The workflow is [`.github/workflows/upgrade-test.yml`](../../.github/workflows/upgrade-test.yml).
+Both take `MODE`: `Default`, `Singleton` or `grpc`, klusterlet setups of the ocm e2e jobs.
+`summary.sh` turns the results of all jobs into one table on the run page.
+
+The workflow is [`.github/workflows/upgrade-downgrade-test.yml`](../../.github/workflows/upgrade-downgrade-test.yml).
 It runs nightly and on demand.
 
 ## Run locally
 
-Needs docker, kind, kubectl and helm.
+Needs docker, kind, kubectl, helm, gh and git. Run from the repo root.
 
 ```sh
 export KUBECONFIG=$(mktemp)    # keeps your own kubeconfig untouched
@@ -31,10 +34,11 @@ mkdir -p /tmp/ocm-charts/release /tmp/ocm-charts/main
 gh release download v$RELEASE --repo open-cluster-management-io/ocm -D /tmp/ocm-charts/release \
   --pattern "cluster-manager-$RELEASE.tgz" --pattern "klusterlet-$RELEASE.tgz"
 git clone --depth 1 https://github.com/open-cluster-management-io/ocm /tmp/ocm-charts/main
-RELEASE_CHARTS=/tmp/ocm-charts/release MAIN_CHARTS=/tmp/ocm-charts/main test/upgrade/helm.sh
+MODE=Singleton RELEASE_CHARTS=/tmp/ocm-charts/release MAIN_CHARTS=/tmp/ocm-charts/main \
+  test/upgrade-downgrade/helm.sh
 
 # clusteradm flow (clusteradm $RELEASE on PATH)
-test/upgrade/clusteradm.sh
+MODE=Default test/upgrade-downgrade/clusteradm.sh
 ```
 
-After a failure, `test/upgrade/collect.sh <dir>` saves resources, events and pod logs.
+After a failure, `test/upgrade-downgrade/collect-debug.sh <dir>` saves resources, events and pod logs.
