@@ -58,10 +58,11 @@ create_cluster() {
   kind create cluster --name "$CLUSTER_NAME" --image "$KIND_NODE_IMAGE" --wait 300s
 }
 
-# pull_images <tag>...: pull every OCM image for each tag into the kind node up front, so pods
-# start from the node cache (imagePullPolicy IfNotPresent) and the run does not depend on
-# registry pulls in the middle of an upgrade. Prints the digest and the version the operator
-# binary reports, which is stamped at build time.
+# pull_images <tag>...: pull every OCM image for each tag into the kind node up front. Prints the
+# digest and the version the operator binary reports, which is stamped at build time. The operator
+# Deployments use imagePullPolicy IfNotPresent and start from this cache. The Deployments the
+# operator creates set no pull policy, so :latest pods pull again (Always) and can get a newer
+# digest if latest is pushed during the run.
 pull_images() {
   local node=$CLUSTER_NAME-control-plane tag img ref
   for tag in "$@"; do

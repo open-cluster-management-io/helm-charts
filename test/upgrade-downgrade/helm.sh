@@ -9,7 +9,7 @@
 #   MODE=Singleton RELEASE=1.4.0 RELEASE_CHARTS=<dir with cluster-manager-1.4.0.tgz and klusterlet-1.4.0.tgz> \
 #   MAIN_CHARTS=<ocm checkout> test/upgrade-downgrade/helm.sh
 set -euo pipefail
-MODE=${MODE:-Singleton}
+MODE=${MODE:-Default}
 source "$(dirname "$0")/lib.sh"
 
 : "${RELEASE:?set RELEASE, e.g. 1.4.0}"

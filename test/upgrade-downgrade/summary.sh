@@ -2,7 +2,7 @@
 # Copyright Contributors to the Open Cluster Management project
 #
 # Prints one Markdown table for all jobs of a run, from the result-<flow>-<mode> directories that
-# the jobs upload (see RESULT_DIR in lib.sh).
+# the jobs upload (see RESULT_DIR in lib.sh). The flow and mode lists match the workflow matrix.
 #
 #   test/upgrade-downgrade/summary.sh <dir with result-* directories> <release>
 set -uo pipefail
@@ -19,12 +19,9 @@ echo "### Upgrade and downgrade: $release → main → $release"
 echo
 echo "| Flow | Mode | Install $release | Upgrade to main | Downgrade to $release | Result |"
 echo "|---|---|---|---|---|---|"
-for result in "$dir"/result-*; do
-  [ -d "$result" ] || continue
-  name=${result##*/result-}
-  flow=${name%%-*}
-  mode=${name#*-}
-  steps=$result/steps.tsv
+# Every job of the workflow matrix gets a row, also one that failed before it wrote a result.
+for flow in helm clusteradm; do for mode in Default Singleton grpc; do
+  steps=$dir/result-$flow-$mode/steps.tsv
   if [ ! -s "$steps" ]; then
     echo "| $flow | $mode | - | - | - | ❌ no result, see the job log |"
     continue
@@ -35,7 +32,7 @@ for result in "$dir"/result-*; do
     verdict="✅ passed"
   fi
   echo "| $flow | $mode | $(cell "$steps" install) | $(cell "$steps" upgrade) | $(cell "$steps" downgrade) | $verdict |"
-done
+done; done
 
 images=$(find "$dir" -name images.tsv -size +0 | head -1)
 if [ -n "$images" ]; then

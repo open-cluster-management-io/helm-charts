@@ -27,10 +27,29 @@ env:
   HELM_VERSION: v3.22.0
 
 jobs:
+  # Resolved once, so every job tests the same release even if one is published mid-run.
+  release:
+    runs-on: ubuntu-24.04
+    outputs:
+      release: ${{ steps.resolve.outputs.release }}
+    steps:
+      - name: Resolve release
+        id: resolve
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_RELEASE: ${{ inputs.release }}
+        run: |
+          release=${INPUT_RELEASE:-$(gh release view --repo open-cluster-management-io/ocm --json tagName -q .tagName)}
+          echo "release=${release#v}" >> "$GITHUB_OUTPUT"
+          echo "Release: ${release#v}"
+
   upgrade-downgrade:
     name: upgrade-downgrade (${{ matrix.flow }}, ${{ matrix.mode }})
+    needs: release
     runs-on: ubuntu-24.04
     timeout-minutes: 40
+    env:
+      RELEASE: ${{ needs.release.outputs.release }}
     strategy:
       fail-fast: false
       matrix:
@@ -40,15 +59,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Resolve release
-        env:
-          GH_TOKEN: ${{ github.token }}
-          INPUT_RELEASE: ${{ inputs.release }}
-        run: |
-          release=${INPUT_RELEASE:-$(gh release view --repo open-cluster-management-io/ocm --json tagName -q .tagName)}
-          echo "RELEASE=${release#v}" >> "$GITHUB_ENV"
-          echo "Release: ${release#v}"
 
       - name: Install kind, kubectl and helm
         run: |
@@ -83,6 +93,11 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
+          # clusteradm is released separately, often a day after ocm, and only knows bundles up to its own version.
+          if ! gh release view "v${RELEASE}" --repo open-cluster-management-io/clusteradm >/dev/null 2>&1; then
+            echo "::error::no clusteradm v${RELEASE} release found, so the clusteradm flow cannot test ocm ${RELEASE}"
+            exit 1
+          fi
           gh release download "v${RELEASE}" --repo open-cluster-management-io/clusteradm \
             --pattern clusteradm_linux_amd64.tar.gz -O - | tar -xz -C "$HOME/bin" clusteradm
 
@@ -117,21 +132,16 @@ jobs:
           if-no-files-found: ignore
 
   summary:
-    name: summary
-    needs: upgrade-downgrade
+    # GitHub titles the run page section "<job name> summary".
+    name: results
+    needs: [release, upgrade-downgrade]
     if: always()
     runs-on: ubuntu-24.04
+    env:
+      RELEASE: ${{ needs.release.outputs.release }}
     steps:
       - name: Checkout
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Resolve release
-        env:
-          GH_TOKEN: ${{ github.token }}
-          INPUT_RELEASE: ${{ inputs.release }}
-        run: |
-          release=${INPUT_RELEASE:-$(gh release view --repo open-cluster-management-io/ocm --json tagName -q .tagName)}
-          echo "RELEASE=${release#v}" >> "$GITHUB_ENV"
 
       - name: Download results
         uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2

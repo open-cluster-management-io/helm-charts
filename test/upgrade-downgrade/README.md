@@ -10,6 +10,11 @@ After every step it checks that:
 
 One kind cluster acts as both hub and managed cluster.
 
+Not covered:
+
+- The `ClusterManager` and `Klusterlet` CRDs are in the charts' `crds/` folder. Helm installs them once and never upgrades or downgrades them.
+- `clusteradm upgrade --bundle-version latest` renders the operator chart built into clusteradm `$RELEASE` with `latest` images. The operator Deployment comes from the release, the hub and agent components from the `latest` operator.
+
 | Script | Install and upgrade |
 |---|---|
 | `helm.sh` | `helm upgrade --install` with the release charts and the charts on ocm `main` |

@@ -6,7 +6,7 @@ set -uo pipefail
 source "$(dirname "$0")/lib.sh"
 trap - EXIT
 
-out=${1:?usage: collect.sh <output dir>}
+out=${1:?usage: collect-debug.sh <output dir>}
 mkdir -p "$out"
 
 helm list -A > "$out/helm-releases.txt" 2>&1
