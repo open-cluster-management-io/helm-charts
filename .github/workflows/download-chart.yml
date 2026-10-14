@@ -57,11 +57,26 @@ jobs:
           token: ${{ secrets.OCM_BOT_PAT }}
 
       - name: Push Chart
+        env:
+          SOURCE_REPO: ${{ github.event.inputs.repo }}
+          CHART_FILE: ${{ github.event.inputs.chart-name }}-${{ github.event.inputs.version }}.tgz
+          PUSH_URL: https://${{ github.token }}@github.com/${{ github.repository }}.git
         run: |
           git config user.name "$GITHUB_ACTOR"
           git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
           git add .
           git status
           git commit -s \
-            -m "Automated upload ${{ github.event.inputs.repo }} ${{ github.event.inputs.chart-name }}-${{ github.event.inputs.version }}.tgz"
-          git push https://${{ github.token }}@github.com/${{ github.repository }}.git ${{ env.PUBLISH_BRANCH }}
+            -m "Automated upload ${SOURCE_REPO} ${CHART_FILE}"
+          # Runs dispatched by concurrent releases race on the same branch; rebase and retry instead of failing on a non-fast-forward push.
+          for attempt in 1 2 3 4 5; do
+            if git push "${PUSH_URL}" "${PUBLISH_BRANCH}"; then
+              exit 0
+            fi
+            echo "Push attempt ${attempt} rejected, rebasing onto latest ${PUBLISH_BRANCH}"
+            sleep $((RANDOM % 10 + 1))
+            git fetch origin "${PUBLISH_BRANCH}"
+            git rebase FETCH_HEAD
+          done
+          echo "::error::Failed to push ${CHART_FILE} to ${PUBLISH_BRANCH} after 5 attempts"
+          exit 1
