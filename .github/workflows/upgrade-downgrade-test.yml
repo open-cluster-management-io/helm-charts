@@ -1,0 +1,153 @@
+# Copyright Contributors to the Open Cluster Management project
+#
+# Upgrade and downgrade test for OCM (open-cluster-management-io/ocm#1732).
+# release (N-1) -> ocm main (N) -> release (N-1), in the Default, Singleton and grpc klusterlet setups
+# of the ocm e2e jobs, each installed with Helm charts and with clusteradm. A summary job puts all
+# results in one table.
+# Runs nightly and on demand, not on pull requests.
+name: Upgrade Downgrade Test
+
+on:
+  schedule:
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'OCM release to install first and downgrade to, e.g. 1.4.0. Empty means the latest OCM release.'
+        required: false
+        type: string
+
+permissions:
+  contents: read
+
+env:
+  KIND_VERSION: v0.31.0
+  KIND_NODE_IMAGE: kindest/node:v1.29.2
+  KUBECTL_VERSION: v1.29.2
+  HELM_VERSION: v3.22.0
+
+jobs:
+  # Resolved once, so every job tests the same release even if one is published mid-run.
+  release:
+    runs-on: ubuntu-24.04
+    outputs:
+      release: ${{ steps.resolve.outputs.release }}
+    steps:
+      - name: Resolve release
+        id: resolve
+        env:
+          GH_TOKEN: ${{ github.token }}
+          INPUT_RELEASE: ${{ inputs.release }}
+        run: |
+          release=${INPUT_RELEASE:-$(gh release view --repo open-cluster-management-io/ocm --json tagName -q .tagName)}
+          echo "release=${release#v}" >> "$GITHUB_OUTPUT"
+          echo "Release: ${release#v}"
+
+  upgrade-downgrade:
+    name: upgrade-downgrade (${{ matrix.flow }}, ${{ matrix.mode }})
+    needs: release
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    env:
+      RELEASE: ${{ needs.release.outputs.release }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Klusterlet setups of the ocm e2e jobs, each installed with Helm and with clusteradm.
+        flow: [helm, clusteradm]
+        mode: [Default, Singleton, grpc]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Install kind, kubectl and helm
+        run: |
+          mkdir -p "$HOME/bin"
+          curl -fsSLo "$HOME/bin/kind" "https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-amd64"
+          curl -fsSLo "$HOME/bin/kubectl" "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
+          curl -fsSL "https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz" | tar -xz -C "$HOME/bin" --strip-components=1 linux-amd64/helm
+          chmod +x "$HOME/bin/kind" "$HOME/bin/kubectl"
+          echo "$HOME/bin" >> "$GITHUB_PATH"
+
+      - name: Download release charts
+        if: matrix.flow == 'helm'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download "v${RELEASE}" --repo open-cluster-management-io/ocm -D "$RUNNER_TEMP/release-charts" \
+            --pattern "cluster-manager-${RELEASE}.tgz" --pattern "klusterlet-${RELEASE}.tgz"
+
+      - name: Checkout ocm main charts
+        if: matrix.flow == 'helm'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          repository: open-cluster-management-io/ocm
+          ref: main
+          path: ocm
+          sparse-checkout: |
+            deploy/cluster-manager/chart
+            deploy/klusterlet/chart
+
+      - name: Install clusteradm
+        if: matrix.flow == 'clusteradm'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # clusteradm is released separately, often a day after ocm, and only knows bundles up to its own version.
+          if ! gh release view "v${RELEASE}" --repo open-cluster-management-io/clusteradm >/dev/null 2>&1; then
+            echo "::error::no clusteradm v${RELEASE} release found, so the clusteradm flow cannot test ocm ${RELEASE}"
+            exit 1
+          fi
+          gh release download "v${RELEASE}" --repo open-cluster-management-io/clusteradm \
+            --pattern clusteradm_linux_amd64.tar.gz -O - | tar -xz -C "$HOME/bin" clusteradm
+
+      - name: Run ${{ matrix.flow }} flow
+        env:
+          RELEASE_CHARTS: ${{ runner.temp }}/release-charts
+          MAIN_CHARTS: ${{ github.workspace }}/ocm
+          WORK_DIR: ${{ runner.temp }}
+          MODE: ${{ matrix.mode }}
+          RESULT_DIR: ${{ runner.temp }}/result-${{ matrix.flow }}-${{ matrix.mode }}
+        run: |
+          if [ -d ocm ]; then echo "ocm main: $(git -C ocm rev-parse --short HEAD)"; fi
+          test/upgrade-downgrade/${{ matrix.flow }}.sh
+
+      - name: Collect cluster state
+        if: failure()
+        run: test/upgrade-downgrade/collect-debug.sh "$RUNNER_TEMP/debug-${{ matrix.flow }}-${{ matrix.mode }}"
+
+      - name: Upload cluster state
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: debug-${{ matrix.flow }}-${{ matrix.mode }}
+          path: ${{ runner.temp }}/debug-${{ matrix.flow }}-${{ matrix.mode }}
+
+      - name: Upload result
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: result-${{ matrix.flow }}-${{ matrix.mode }}
+          path: ${{ runner.temp }}/result-${{ matrix.flow }}-${{ matrix.mode }}
+          if-no-files-found: ignore
+
+  summary:
+    # GitHub titles the run page section "<job name> summary".
+    name: results
+    needs: [release, upgrade-downgrade]
+    if: always()
+    runs-on: ubuntu-24.04
+    env:
+      RELEASE: ${{ needs.release.outputs.release }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Download results
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: result-*
+          path: results
+
+      - name: Write summary
+        run: test/upgrade-downgrade/summary.sh results "$RELEASE" >> "$GITHUB_STEP_SUMMARY"
