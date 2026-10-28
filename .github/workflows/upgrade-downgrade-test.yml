@@ -8,12 +8,17 @@
 name: Upgrade Downgrade Test
 
 on:
+  # Also on PRs that change the test itself.
+  pull_request:
+    paths:
+      - .github/workflows/upgrade-downgrade-test.yml
+      - test/upgrade-downgrade/**
   schedule:
     - cron: '0 3 * * *'
   workflow_dispatch:
     inputs:
       release:
-        description: 'OCM release to install first and downgrade to, e.g. 1.4.0. Empty means the latest OCM release.'
+        description: 'OCM release to install first and downgrade to, e.g. 1.4.0. Empty means the newest OCM release on main.'
         required: false
         type: string
 
@@ -21,15 +26,15 @@ permissions:
   contents: read
 
 env:
-  KIND_VERSION: v0.31.0
-  KIND_NODE_IMAGE: kindest/node:v1.29.2
-  KUBECTL_VERSION: v1.29.2
-  HELM_VERSION: v3.22.0
+  KIND_VERSION: v0.33.0
+  # Used for both the kind node image and kubectl.
+  KUBERNETES_VERSION: v1.36.4
+  HELM_VERSION: v3.22.1
 
 jobs:
   # Resolved once, so every job tests the same release even if one is published mid-run.
   release:
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     outputs:
       release: ${{ steps.resolve.outputs.release }}
     steps:
@@ -62,7 +67,7 @@ jobs:
   upgrade-downgrade:
     name: upgrade-downgrade (${{ matrix.flow }}, ${{ matrix.mode }})
     needs: release
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     timeout-minutes: 40
     env:
       RELEASE: ${{ needs.release.outputs.release }}
@@ -80,7 +85,7 @@ jobs:
         run: |
           mkdir -p "$HOME/bin"
           curl -fsSLo "$HOME/bin/kind" "https://kind.sigs.k8s.io/dl/${KIND_VERSION}/kind-linux-amd64"
-          curl -fsSLo "$HOME/bin/kubectl" "https://dl.k8s.io/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl"
+          curl -fsSLo "$HOME/bin/kubectl" "https://dl.k8s.io/release/${KUBERNETES_VERSION}/bin/linux/amd64/kubectl"
           curl -fsSL "https://get.helm.sh/helm-${HELM_VERSION}-linux-amd64.tar.gz" | tar -xz -C "$HOME/bin" --strip-components=1 linux-amd64/helm
           chmod +x "$HOME/bin/kind" "$HOME/bin/kubectl"
           echo "$HOME/bin" >> "$GITHUB_PATH"
@@ -152,7 +157,7 @@ jobs:
     name: results
     needs: [release, upgrade-downgrade]
     if: always()
-    runs-on: ubuntu-24.04
+    runs-on: ubuntu-latest
     env:
       RELEASE: ${{ needs.release.outputs.release }}
     steps:

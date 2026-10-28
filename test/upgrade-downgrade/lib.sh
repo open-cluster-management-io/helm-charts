@@ -1,8 +1,9 @@
+#!/usr/bin/env bash
 # Copyright Contributors to the Open Cluster Management project
 # Helpers shared by the upgrade and downgrade test flows. Sourced by helm.sh and clusteradm.sh.
 
 CLUSTER_NAME=${CLUSTER_NAME:-ocm-upgrade}
-KIND_NODE_IMAGE=${KIND_NODE_IMAGE:-kindest/node:v1.29.2}
+KUBERNETES_VERSION=${KUBERNETES_VERSION:-v1.36.4}
 REGISTRY=quay.io/open-cluster-management
 IMAGES=(registration-operator registration work placement addon-manager)
 MANAGED_CLUSTER=cluster1
@@ -55,7 +56,7 @@ wait_for() {
 
 create_cluster() {
   kind delete cluster --name "$CLUSTER_NAME" >/dev/null 2>&1 || true
-  kind create cluster --name "$CLUSTER_NAME" --image "$KIND_NODE_IMAGE" --wait 300s
+  kind create cluster --name "$CLUSTER_NAME" --image "kindest/node:$KUBERNETES_VERSION" --wait 300s
 }
 
 # pull_images <tag>...: pull every OCM image for each tag into the kind node up front. Prints the
