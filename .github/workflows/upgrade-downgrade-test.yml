@@ -4,7 +4,7 @@
 # release (N-1) -> ocm main (N) -> release (N-1), in the Default, Singleton and grpc klusterlet setups
 # of the ocm e2e jobs, each installed with Helm charts and with clusteradm. A summary job puts all
 # results in one table.
-# Runs nightly and on demand, not on pull requests.
+# Runs nightly, on demand, and for pull requests that modify the tests or this workflow.
 name: Upgrade Downgrade Test
 
 on:
