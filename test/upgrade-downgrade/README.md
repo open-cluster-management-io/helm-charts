@@ -17,6 +17,7 @@ Not covered:
 
 - The `ClusterManager` and `Klusterlet` CRDs are in the charts' `crds/` folder. Helm installs them once and never upgrades or downgrades them.
 - `clusteradm upgrade --bundle-version latest` renders the operator chart built into clusteradm `$RELEASE` with `latest` images. The operator Deployment comes from the release, the hub and agent components from the `latest` operator.
+- The downgrade doesn't take the CRD path of a real downgrade. The operator stamps the OCM CRDs with its version without the `-<n>-g<sha>` suffix, so `latest` and `$RELEASE` stamp the same version and the downgrade rolls the CRDs back to the release schema. In a real downgrade the CRDs carry the newer version, and the older operator keeps them.
 
 | Script | Install and upgrade |
 |---|---|
